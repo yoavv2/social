@@ -1,5 +1,7 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
+
+
 function Feed() {
   return (
     <Grid columns={3}>
