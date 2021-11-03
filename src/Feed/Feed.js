@@ -12,7 +12,6 @@ function Feed() {
             try{
                 const feed =  await getFeed();
                 setPosts(feed);
-
             }catch (e) {
                 console.log(e)
             }

@@ -5,11 +5,9 @@ import "./Post.css";
 
 
 function Post({data}) {
+console.log(data)
 
-
-
-
-  return<div className={'Post'} >
+  return <div className={'Post'} >
     <Card fluid>
       <Card.Content >
         <Image
@@ -45,12 +43,6 @@ function Post({data}) {
       {/*  </div>*/}
       {/*</Card.Content>*/}
     </Card>
-    <CardContent>
-      Comments:
-      {data.comments.map((comment, index) => {
-        return <div key={index} className='comment'>{comment}</div>
-      })}
-    </CardContent>
   </div>;
 }
 

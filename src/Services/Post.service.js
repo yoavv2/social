@@ -1,8 +1,8 @@
 async function create(form) {
   const res = await fetch("http://netcraft-hackathon.herokuapp.com/post", {
     method: "POST",
-    body: form,
-    headers: { "Content-Type": "application-json" },
+    body: JSON.stringify(form),
+    headers: { "Content-Type": "application/json" },
   });
   return res.json();
 }
