@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-
+import { useHistory } from "react-router";
 import { Button, Form, Input } from "semantic-ui-react";
 import { createUser } from "../Services/user.service";
 function Register() {
   const [value, setValue] = useState("");
-
+  const history = useHistory();
   async function submit() {
     try {
-      console.log(`value`, value);
       await createUser(value);
+      history.push("/");
     } catch (e) {
       console.log(e);
     }
