@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Input } from "semantic-ui-react";
 import { createUser } from "../Services/user.service";
 function Register() {
-  async function submit(values) {
+  const [value, setValue] = useState("");
+
+  async function submit() {
     try {
-      await createUser(values);
-      // history.push("/login");
+      console.log(`value`, value);
+      await createUser(value);
     } catch (e) {
       console.log(e);
     }
   }
   return (
-    <Form onSubmit={submit}>
+    <Form className="form-container" onSubmit={submit}>
       <Form.Field>
         <Form.Input
-          label="name"
+          lable="name"
           placeholder="what is your name?"
           name="name"
           type="text"
-          // value={values.username}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
       </Form.Field>
     </Form>
