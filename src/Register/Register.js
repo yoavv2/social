@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
+import { Button, Form } from "semantic-ui-react";
 function Register() {
-  return <div>
-    <form>
-      <input />
-    </form>
-  </div>;
+  return (
+    <Form>
+      <Form.Field></Form.Field>
+    </Form>
+  );
 }
 
 export default Register;
