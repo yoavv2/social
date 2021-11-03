@@ -5,8 +5,10 @@ import { createUser } from "../Services/user.service";
 function Register() {
   const [value, setValue] = useState("");
   const history = useHistory();
+
   async function submit() {
     try {
+      console.log(`value`, value);
       await createUser(value);
       history.push("/");
     } catch (e) {

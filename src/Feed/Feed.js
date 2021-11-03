@@ -1,40 +1,41 @@
-import React, {useEffect, useState} from "react";
-import Post from '../Post/Post'
-import {getFeed} from "../Services/Post.service";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Post from "../Post/Post";
+import { getFeed } from "../Services/Post.service";
 import { Grid } from "semantic-ui-react";
 
-
 function Feed() {
-    const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
 
-    useEffect( ()=>{
-        const getPost = async () => {
-            try{
-                const feed =  await getFeed();
-                setPosts(feed);
-            }catch (e) {
-                console.log(e)
-            }
-        }
-        getPost();
-
-    },[]);
-    console.log(posts);
+  useEffect(() => {
+    const getPost = async () => {
+      try {
+        const feed = await getFeed();
+        setPosts(feed);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getPost();
+  }, []);
+  console.log(posts);
   return (
     <Grid columns={3}>
       <Grid.Row>
         <Grid.Column>
           <h1>Recent Posts</h1>
+          <Link to={"/create/post"}>Create Post</Link>
         </Grid.Column>
-
       </Grid.Row>
 
       <Grid.Row floated>
-
-            {posts.map((post)=>{
-                return  <Grid.Column key={post.id}><Post data={post}  /></Grid.Column>;
-            })}
-
+        {posts.map((post) => {
+          return (
+            <Grid.Column key={post.id}>
+              <Post data={post} />
+            </Grid.Column>
+          );
+        })}
       </Grid.Row>
     </Grid>
   );
